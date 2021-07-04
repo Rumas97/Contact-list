@@ -1,0 +1,22 @@
+[
+    {
+      "firstName": "Tara",
+      "lastName": "Mueller",
+      "address": ["Berliner Allee 35, 40255 Duesseldorf"]
+    },
+
+    {
+        "firstName": "Jenny",
+        "lastName": "Miter",
+        "address": ["Bilker Allee 30, 45882 Duesseldorf"]
+    },
+
+    {
+        "firstName": "Daniel",
+        "lastName": "Wolf",
+        "address": ["Elizabethstrasse 23, 43320 Duesseldorf"]
+    }
+    
+    
+]
+  
