@@ -20,6 +20,9 @@ function ContactDetail(props) {
         })
     },[])
 
+    if(!contactDetail.address){
+        return <h1>...loading</h1>
+      }
 
     return (
         
@@ -28,13 +31,14 @@ function ContactDetail(props) {
             <h3>Contact Details</h3>
             <h4>{contactDetail.firstName}</h4>
             <h4>{contactDetail.lastName}</h4>
-            <h4>{contactDetail.address}
-                {
+            {
                 contactDetail.address.map((singleAddress)=>{
                     return <div>{singleAddress}</div>
                 })
-                }
-            </h4>
+            // Object.keys(contactDetail.address).map(function(key) {
+            //     return <div>{contactDetail.address[key]}</div> 
+            // })
+            }
             <button>
                 <Link to={`/contacts/${contactDetail._id}/edit`}>Edit</Link>
             </button>

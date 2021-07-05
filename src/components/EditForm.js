@@ -13,7 +13,7 @@ function EditForm(props) {
         .then((response)=>{
             updateContactDetail(response.data)
         })
-    })
+    },[])
 
     const handleAddressChange=(event)=>{
         let newAddress = event.target.value
@@ -29,7 +29,7 @@ function EditForm(props) {
     return (
         <div>
             <h3>Edit contact details</h3>
-            <input onChange={handleAddressChange} type="text" value={contactDetail.name} />
+            <input onChange={handleAddressChange} type="text" value={contactDetail.address} />
             <button onClick={() => { onEdit(contactDetail)  }}>Submit</button>
         </div>
     )
