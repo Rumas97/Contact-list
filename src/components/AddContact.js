@@ -2,10 +2,10 @@ import React from 'react'
 import {TextField, Button} from '@material-ui/core'
 
 function AddContact(props) {
-    const{onSubmit}=props
+    const{onAdd}=props
     return (
         <div>
-           <form onSubmit={onSubmit} noValidate autoComplete="off">
+           <form onSubmit={onAdd} noValidate autoComplete="off">
                 <TextField name="firstName" label="Firstname" />
                 <TextField name="lastName" label="Lastname" />
                 <TextField name="address" label="address" />
