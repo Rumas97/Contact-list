@@ -29,19 +29,29 @@ function ContactDetail(props) {
         <div>
             
             <h3>Contact Details</h3>
-            <h4>{contactDetail.firstName}</h4>
-            <h4>{contactDetail.lastName}</h4>
+            <div style={{fontSize:"20px"}}>First Name: {contactDetail.firstName}
+            <button style={{fontSize:"16px"},{marginLeft:"30px"}}>
+                <Link to={`/contacts/${contactDetail._id}/edit`}>Edit</Link>
+            </button></div>
+            
+            <div style={{fontSize:"20px"}}>Last Name: {contactDetail.lastName}
+            <button style={{fontSize:"16px"},{marginLeft:"30px"}}>
+                <Link to={`/contacts/${contactDetail._id}/edit`}>Edit</Link>
+            </button></div>
+            
             {
                 contactDetail.address.map((singleAddress)=>{
-                    return <div>{singleAddress}</div>
+                    return <div style={{fontSize:"20px"}}>Address: {singleAddress} <button style={{fontSize:"16px"}}>
+                    <Link to={`/contacts/${contactDetail._id}/edit`}>Edit</Link>
+                </button></div>
+                    
                 })
+                
             // Object.keys(contactDetail.address).map(function(key) {
             //     return <div>{contactDetail.address[key]}</div> 
             // })
             }
-            <button>
-                <Link to={`/contacts/${contactDetail._id}/edit`}>Edit</Link>
-            </button>
+            
         </div>
     )
         

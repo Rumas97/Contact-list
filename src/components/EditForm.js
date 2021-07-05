@@ -15,6 +15,28 @@ function EditForm(props) {
         })
     },[])
 
+    const handleFirstNameChange = (event) => {
+    
+
+        let newFirstName = event.target.value
+        console.log("newfirstName",newFirstName)
+        let cloneContactDetail = JSON.parse(JSON.stringify(contactDetail))
+
+        cloneContactDetail.firstName = newFirstName
+        updateContactDetail(cloneContactDetail)
+
+    }
+
+    const handleLastNameChange = (event) => {
+
+        let newLastName = event.target.value
+        let cloneContactDetail = JSON.parse(JSON.stringify(contactDetail))
+
+        cloneContactDetail.lastName = newLastName
+        updateContactDetail(cloneContactDetail)
+
+    }
+
     const handleAddressChange=(event)=>{
         let newAddress = event.target.value
 
@@ -25,10 +47,14 @@ function EditForm(props) {
         updateContactDetail(cloneContactDetail)
     }
 
+    
+
     const{onEdit}=props
     return (
         <div>
             <h3>Edit contact details</h3>
+            <input onChange={handleFirstNameChange} type="text" value={contactDetail.firstName} />
+            <input onChange={handleLastNameChange} type="text" value={contactDetail.lastName} />
             <input onChange={handleAddressChange} type="text" value={contactDetail.address} />
             <button onClick={() => { onEdit(contactDetail)  }}>Submit</button>
         </div>

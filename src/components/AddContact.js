@@ -5,6 +5,7 @@ function AddContact(props) {
     const{onAdd}=props
     return (
         <div>
+            <h1> Add a new contact</h1>
            <form onSubmit={onAdd} noValidate autoComplete="off">
                 <TextField name="firstName" label="Firstname" />
                 <TextField name="lastName" label="Lastname" />

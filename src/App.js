@@ -6,6 +6,7 @@ import { Switch, Route, withRouter } from 'react-router-dom';
 import ContactList from './components/ContactList';
 import EditForm from './components/EditForm';
 import AddContact from './components/AddContact';
+import MyNav from './components/MyNav';
 
 
 function App(props) {
@@ -48,7 +49,8 @@ function App(props) {
  
 
   const handleEdit=(contactDetail)=>{
-    axios.patch(`http://localhost:5005/api/contacts/${contactDetail._id}`, contactDetail)
+    
+    axios.patch(`http://localhost:5005/api/contacts/${contactDetail._id}/edit`, contactDetail)
     .then(()=>{
       let updatedContacts = contacts.map((singleContact)=>{
         if(singleContact._id == contactDetail._id){
@@ -59,17 +61,19 @@ function App(props) {
         return singleContact
       })
       updateContacts(updatedContacts)
+      props.history.push(`/contacts/${contactDetail._id}`)
     })
     .catch(()=>{
       console.log('edit crashed')
     })
   }
 
-  return (
 
+  return (
     <div>
-      <h1>Contact List</h1>
-      
+      <MyNav /> 
+      <div>
+ 
       <Switch>
         <Route exact path="/" render={() => {
           return <ContactList contacts={contacts}/>
@@ -86,6 +90,8 @@ function App(props) {
       </Switch>
       
     </div>
+    </div>
+
     
 
   );
